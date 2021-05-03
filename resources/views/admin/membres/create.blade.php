@@ -29,9 +29,15 @@
             <label for="image">Entrer Votre image</label>
             <input type="text" id="image" name="image" class="form-control">
         </div>
+        
         <div class="form-group">
-            <label for="genre">Entrer Votre Genre</label>
-            <input type="text" id="genre" name="genre" class="form-control">
+        <label for="genre">Choix du Genre</label>
+        <select class="form-control" name="genre">
+            @foreach ($genres as $genre)
+            <option value="{{$genre->genre}}">{{$genre->genre}}</option>
+            @endforeach
+        </select>
+
         </div>
         <button class="btn btn-success" type="submit">Envoyer</button>
     </form>

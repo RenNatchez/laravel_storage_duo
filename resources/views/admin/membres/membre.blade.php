@@ -33,7 +33,14 @@
         @foreach ($membres as $membre)
         <div class="d-flex justify-content-between border border-top-0 border-right-0 border-left-0 my-3 pb-2">
             <h1>{{$membre->nom}}</h1>
-            <div>
+            
+            <div class="d-flex">
+                <a href="{{route('membre.edit',$membre->id)}}"><button class="btn btn-primary">EDIT</button></a>
+            <form action="{{route('membre.destroy', $membre->id)}}" method="post">
+                    @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
             </div>
         </div>
         @endforeach

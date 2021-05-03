@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Membre;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class MembreController extends Controller
      */
     public function create()
     {
-        return view('admin/membres/create');
+        $genres = Genre::all();
+        return view('admin/membres/create', compact('genres'));
     }
 
     /**
@@ -60,7 +62,11 @@ class MembreController extends Controller
      */
     public function edit(Membre $membre)
     {
-        //
+        {
+            $genres = Genre::all();
+            $membres = $membre;
+            return view('admin/membres/udapte', compact('membre','genres'));
+        }    
     }
 
     /**
@@ -72,7 +78,20 @@ class MembreController extends Controller
      */
     public function update(Request $request, Membre $membre)
     {
-        //
+        
+        request()->validate([
+            'nom' => ["required"],
+            'age' => ["required"],
+            'image' => ["required"],
+            'genre' => ["required"],
+        ]);
+        $membre->nom = $request->nom;
+        $membre->age = $request->age;
+        $membre->image = $request->image;
+        $membre->genre = $request->genre;
+        $membre->save();
+        return redirect()->route(('membre.index'));
+
     }
 
     /**
@@ -83,6 +102,7 @@ class MembreController extends Controller
      */
     public function destroy(Membre $membre)
     {
-        //
+        $membre->delete();
+        return redirect()->route('membre.index');
     }
 }
