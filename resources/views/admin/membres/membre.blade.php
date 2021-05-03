@@ -10,20 +10,33 @@
 <body>
     <header>
         <div class="container py-5 d-flex justify-content-between">
-            <h1>Molengeek Backend Admin</h1>
-            <a href="{{route('home')}}"><button class="btn btn-dark">Return</button></a>
+            <h1>Molengeek Backend Admin Membre</h1>
+            <div>
+                <a href="{{route('admin.home')}}"><button class="btn btn-dark">Return</button></a>
+                <a href="{{route('membre.create')}}"><button class="btn btn-success">ADD</button></a>
+            </div>
+
         </div>
         <hr>
     </header>
-    <section>
+    <section class="mb-5">
         <div class="d-flex justify-content-around">
-            <a href="{{route('membre.index')}}" class="text-decoration-none"><div class="bg-dark py-3 px-5">
+            <a href="" class="text-decoration-none"><div class="bg-dark py-3 px-5">
                     <h2 class="m-0">MEMBRE</h2>
                 </div></a>
             <a href="" class="text-decoration-none"><div class="bg-dark py-3 px-5">
                 <h2 class="m-0">GENRE</h2>
                 </div></a>
         </div>
+    </section>
+    <section class="container">
+        @foreach ($membres as $membre)
+        <div class="d-flex justify-content-between border border-top-0 border-right-0 border-left-0 my-3 pb-2">
+            <h1>{{$membre->nom}}</h1>
+            <div>
+            </div>
+        </div>
+        @endforeach
     </section>
 </body>
 </html>

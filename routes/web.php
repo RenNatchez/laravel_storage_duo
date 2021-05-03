@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\MembreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class,'home'])->name('home');
 Route::get('/admin/home', [FrontController::class,'index'])->name('admin.home');
+
+Route::resource('/admin/membre', MembreController::class);
+
+// Route::resource('/admin/genre', GenreController::class);

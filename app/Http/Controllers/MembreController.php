@@ -14,7 +14,8 @@ class MembreController extends Controller
      */
     public function index()
     {
-        //
+        $membres = Membre::all();
+        return view('admin/membres/membre', compact('membres'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MembreController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/membres/create');
     }
 
     /**
@@ -35,19 +36,21 @@ class MembreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'nom' => ["required"],
+            'age' => ["required"],
+            'image' => ["required"],
+            'genre' => ["required"],
+        ]);
+        $membre = new Membre();
+        $membre->nom = $request->nom;
+        $membre->age = $request->age;
+        $membre->image = $request->image;
+        $membre->genre = $request->genre;
+        $membre->save();
+        return redirect()->route(('membre.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Membre  $membre
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Membre $membre)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
