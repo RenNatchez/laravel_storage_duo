@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label for="image">Entrer Votre image</label>
-            <input type="text" id="image" name="image" class="form-control">
+            <input type="file" id="image" name="image" class="form-control-file">
         </div>
         
         <div class="form-group">

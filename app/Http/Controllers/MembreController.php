@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\Membre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MembreController extends Controller
 {
@@ -44,10 +45,13 @@ class MembreController extends Controller
             'image' => ["required"],
             'genre' => ["required"],
         ]);
+        
         $membre = new Membre();
+        $request->file('image')->storePublicly('img/', 'public');
+        $membre->image = $request->file('image')->hashName();
+
         $membre->nom = $request->nom;
         $membre->age = $request->age;
-        $membre->image = $request->image;
         $membre->genre = $request->genre;
         $membre->save();
         return redirect()->route(('membre.index'));
@@ -85,6 +89,14 @@ class MembreController extends Controller
             'image' => ["required"],
             'genre' => ["required"],
         ]);
+
+        if ($request->image != null) {
+            Storage::disk('public')->delete('img/'. $membre->image);
+            $request->file('image')->storePublicly('img/', 'public');
+            $membre->image = $request->file('image')->hashName();
+            $membre->save();
+        }
+
         $membre->nom = $request->nom;
         $membre->age = $request->age;
         $membre->image = $request->image;
@@ -103,6 +115,7 @@ class MembreController extends Controller
     public function destroy(Membre $membre)
     {
         $membre->delete();
+        Storage::disk('public')->delete('img/'. $membre->image);
         return redirect()->route('membre.index');
     }
 }

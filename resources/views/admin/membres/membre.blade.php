@@ -35,8 +35,8 @@
             <h1>{{$membre->nom}}</h1>
             
             <div class="d-flex">
-                <a href="{{route('membre.edit',$membre->id)}}"><button class="btn btn-primary">EDIT</button></a>
-            <form action="{{route('membre.destroy', $membre->id)}}" method="post">
+                <a href="{{route('membre.edit',$membre)}}"><button class="btn btn-primary">EDIT</button></a>
+            <form action="{{route('membre.destroy', $membre)}}" method="post">
                     @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">DELETE</button>
