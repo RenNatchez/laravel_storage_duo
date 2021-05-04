@@ -18,7 +18,8 @@ class CreateMembresTable extends Migration
             $table->string('nom');
             $table->integer('age');
             $table->string('image');
-            $table->string('genre');
+            $table->unsignedBigInteger('genre_id');
+            $table->foreign('genre_id')->references('id')->on('genres');
             $table->timestamps();
         });
     }
