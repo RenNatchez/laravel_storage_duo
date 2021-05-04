@@ -24,7 +24,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.genre.create');
     }
 
     /**
@@ -35,7 +35,13 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "genre" => "required"
+        ]);
+        $genres = new Genre();
+        $genres->genre = $request->genre;
+        $genres->save();
+        return redirect()->route('membre.index');
     }
 
     /**

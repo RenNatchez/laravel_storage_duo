@@ -21,4 +21,4 @@ Route::get('/admin/home', [FrontController::class,'index'])->name('admin.home');
 
 Route::resource('/admin/membre', MembreController::class);
 
-// Route::resource('/admin/genre', GenreController::class);
+Route::resource('/admin/genre', GenreController::class);

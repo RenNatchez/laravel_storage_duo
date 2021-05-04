@@ -20,29 +20,29 @@
     <section class="d-flex flex-wrap container justify-content-between">
         @foreach ($membres as $membre)
         @if ($membre->genre == 'homme')
-        <div class="card my-5" style="width: 18rem;">
+        <div class="card my-5 border border-danger" style="width: 18rem;">
             <img src="{{asset('img/' .$membre->image)}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$membre->nom}}</h5>
-                <p class="card-text">Age : {{$membre->age}}</p>
-                <a href="#" class="btn btn-primary">{{$membre->genre}}</a>
-            </div>
-        </div>
-        @elseif ($membre->genre == 'femme')
-        <div class="card my-5" style="width: 18rem;">
-            <img src="{{asset('img/' .$membre->image)}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{$membre->nom}}</h5>
-                <p class="card-text">Age : {{$membre->age}}</p>
+                <p class="card-text">Age : {{$membre->age}} ans</p>
                 <a href="#" class="btn btn-danger">{{$membre->genre}}</a>
             </div>
         </div>
-        @else
-        <div class="card my-5" style="width: 18rem;">
+        @elseif ($membre->genre == 'femme')
+        <div class="card my-5 border border-primary" style="width: 18rem;">
             <img src="{{asset('img/' .$membre->image)}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$membre->nom}}</h5>
-                <p class="card-text">Age : {{$membre->age}}</p>
+                <p class="card-text">Age : {{$membre->age}} ans</p>
+                <a href="#" class="btn btn-primary">{{$membre->genre}}</a>
+            </div>
+        </div>
+        @else
+        <div class="card my-5 border rounded" style="width: 18rem;">
+            <img src="{{asset('img/' .$membre->image)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{$membre->nom}}</h5>
+                <p class="card-text">Age : {{$membre->age}} ans</p>
                 <a href="#" class="btn btn-dark">{{$membre->genre}}</a>
             </div>
         </div>

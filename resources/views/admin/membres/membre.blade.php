@@ -24,7 +24,7 @@
             <a href="" class="text-decoration-none"><div class="bg-dark py-3 px-5">
                     <h2 class="m-0">MEMBRE</h2>
                 </div></a>
-            <a href="" class="text-decoration-none"><div class="bg-dark py-3 px-5">
+            <a href={{route('genre.create')}} class="text-decoration-none"><div class="bg-dark py-3 px-5">
                 <h2 class="m-0">GENRE</h2>
                 </div></a>
         </div>
