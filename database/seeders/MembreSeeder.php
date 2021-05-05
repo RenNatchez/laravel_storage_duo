@@ -14,28 +14,14 @@ class MembreSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('membres')->insert([
-        //     [
-        //         "nom"=>"Charlotte",
-        //         "age"=>24,
-        //         "image"=>"Charlotte.jpg",
-        //         "genre"=>"femme",
-        //         "created_at"=>now(),
-        //     ],
-        //     [
-        //         "nom"=>"Julien",
-        //         "age"=>30,
-        //         "image"=>"julien.jpg",
-        //         "genre"=>"homme",
-        //         "created_at"=>now(),
-        //     ],
-        //     [
-        //         "nom"=>"Anne",
-        //         "age"=>26,
-        //         "image"=>"anne.jpg",
-        //         "genre"=>"femme",
-        //         "created_at"=>now(),
-        //     ],
-        // ]);
+        DB::table('membres')->insert([
+            [
+                "nom"=>"Charlotte",
+                "age"=>24,
+                "image"=>"Charlotte.jpg",
+                "genre_id"=> 2,
+                "created_at"=>now(),
+            ],
+        ]);
     }
 }

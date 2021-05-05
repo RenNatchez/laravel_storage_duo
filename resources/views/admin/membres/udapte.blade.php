@@ -40,10 +40,10 @@
         
         <div class="form-group">
         <label for="genre">Choix du Genre</label>
-        <select class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{$membre->genre}}">
+        <select class="form-control @error('genre') is-invalid @enderror" name="genre_id" >
             <option selected></option>
             @foreach ($genres as $genre)
-            <option value="{{$genre->genre}}">{{$genre->genre}}</option>
+            <option value="{{$genre->id}}" {{ $genre->type == $membre->genre->type ? "selected" : ""  }} >{{$genre->type}}</option>
             @endforeach
         </select>
         @error('genre')

@@ -85,8 +85,7 @@ class MembreController extends Controller
         request()->validate([
             'nom' => ["required"],
             'age' => ["required"],
-            'image' => ["required"],
-            'genre' => ["required"],
+            'genre_id' => ["required"],
         ]);
 
         if ($request->image != null) {
@@ -98,8 +97,7 @@ class MembreController extends Controller
 
         $membre->nom = $request->nom;
         $membre->age = $request->age;
-        $membre->image = $request->image;
-        $membre->genre = $request->genre;
+        $membre->genre_id = $request->genre_id;
         $membre->save();
         return redirect()->route(('membre.index'));
     }
