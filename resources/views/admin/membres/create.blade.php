@@ -35,11 +35,11 @@
         </div>
         <div class="form-group">
         <label for="genre">Choix du Genre</label>
-        <select class="form-control @error('genre') is-invalid @enderror" name="genre">
+        <select class="form-control @error('genre') is-invalid @enderror" name="genre_id">
             <option selected></option>
-            {{-- @foreach ($genres as $genre)
-            <option value="{{$genre->genre}}">{{$genre->genre}}</option>
-            @endforeach --}}
+            @foreach ($genres as $genre)
+            <option value="{{$genre->id}}">{{$genre->type}}</option>
+            @endforeach
         </select>
         @error('genre')
             <span class="invalid-feedback"> <strong>{{ $message }}</strong></span>
