@@ -43,7 +43,7 @@ class MembreController extends Controller
             'nom' => ["required"],
             'age' => ["required"],
             'image' => ["required"],
-            'genre' => ["required"],
+            'genre_id' => ["required"],
         ]);
 
         $membre = new Membre();
