@@ -27,8 +27,8 @@ class MembreController extends Controller
      */
     public function create()
     {
-        $genres = Genre::all();
-        return view('admin/membres/create', compact('genres'));
+        $membres = Membre::all();
+        return view('admin/membres/create', compact('membres'));
     }
 
     /**
@@ -69,7 +69,7 @@ class MembreController extends Controller
         {
             $genres = Genre::all();
             $membres = $membre;
-            return view('admin/membres/udapte', compact('membre','genres'));
+            return view('admin/membres/udapte', compact('membres'));
         }    
     }
 

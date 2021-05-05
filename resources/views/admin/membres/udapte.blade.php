@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel Storage Admin</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-</head>
-<body>
+@extends('layout.index')
+
+@section('content')
+    
     <header>
         <div class="container py-5 d-flex justify-content-between">
             <h1>Molengeek Backend Admin Membre</h1>
@@ -59,5 +53,4 @@
         </div>
         <button class="btn btn-success" type="submit">Envoyer</button>
     </form>
-</body>
-</html>
+@endsection

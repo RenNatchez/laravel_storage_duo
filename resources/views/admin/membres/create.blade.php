@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel Storage Admin</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-</head>
-<body>
+@extends('layout.index')
+
+@section('content')
     <header>
         <div class="container py-5 d-flex justify-content-between">
             <h1>Molengeek Backend Admin Membre</h1>
@@ -40,14 +33,13 @@
             @enderror
 
         </div>
-        
         <div class="form-group">
         <label for="genre">Choix du Genre</label>
-        <select class="form-control @error('genre') is-invalid @enderror"" name="genre">
+        <select class="form-control @error('genre') is-invalid @enderror" name="genre">
             <option selected></option>
-            @foreach ($genres as $genre)
+            {{-- @foreach ($genres as $genre)
             <option value="{{$genre->genre}}">{{$genre->genre}}</option>
-            @endforeach
+            @endforeach --}}
         </select>
         @error('genre')
             <span class="invalid-feedback"> <strong>{{ $message }}</strong></span>
@@ -57,5 +49,5 @@
         </div>
         <button class="btn btn-success" type="submit">Envoyer</button>
     </form>
-</body>
-</html>
+    
+@endsection

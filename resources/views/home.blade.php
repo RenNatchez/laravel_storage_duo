@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.index')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel Storage</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-</head>
 
-<body>
+@section('content')
     <header>
         <div class="container py-5 d-flex justify-content-between">
             <h1>Molengeek</h1>
@@ -25,7 +17,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$membre->nom}}</h5>
                 <p class="card-text">Age : {{$membre->age}} ans</p>
-                <a href="#" class="btn btn-danger">{{$membre->genre}}</a>
+                <a href="#" class="btn btn-danger">{{$membre->genre->type}}</a>
             </div>
         </div>
         @elseif ($membre->genre == 'femme')
@@ -34,7 +26,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$membre->nom}}</h5>
                 <p class="card-text">Age : {{$membre->age}} ans</p>
-                <a href="#" class="btn btn-primary">{{$membre->genre}}</a>
+                <a href="#" class="btn btn-primary">{{$membre->genre->type}}</a>
             </div>
         </div>
         @else
@@ -43,13 +35,12 @@
             <div class="card-body">
                 <h5 class="card-title">{{$membre->nom}}</h5>
                 <p class="card-text">Age : {{$membre->age}} ans</p>
-                <a href="#" class="btn btn-dark">{{$membre->genre}}</a>
+                <a href="#" class="btn btn-dark">{{$membre->genre->type}}</a>
             </div>
         </div>
         @endif
         @endforeach
 
     </section>
-</body>
-
-</html>
+    
+@endsection

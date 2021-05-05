@@ -24,7 +24,7 @@ class GenreSeeder extends Seeder
                 "created_at"=>now(),
             ],
             [
-                "type"=>"autres",
+                "type"=>"autre",
                 "created_at"=>now(),
             ],
         ]);
